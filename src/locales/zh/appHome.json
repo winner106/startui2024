@@ -1,8 +1,8 @@
 {
   "welcome": {
     "title": "欢迎来到 🚀 办公效率Plus",
-    "description": "一个使用 React、Chakra UI、React Query 和 React Hook Form 的意见化 UI 启动器",
-    "author": "— 来自 <strong>BearStudio 团队</strong>"
+    "description": "主要使用 WPS、Excel、影刀、JavaScript 和 AI 等工具，为客户提供专业服务，提升工作效率！",
+    "author": "— 来自 <strong>办公效率 Plus 团队</strong>"
   },
   "links": {
     "github": "表格制作",

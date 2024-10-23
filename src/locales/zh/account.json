@@ -45,11 +45,11 @@
     }
   },
   "logout": {
-    "button": "注销",
+    "button": "退出登陆",
     "confirm": {
-      "title": "账户注销",
+      "title": "账户退出",
       "message": "您即将结束会话",
-      "button": "注销"
+      "button": "退出"
     }
   },
   "deleteAccount": {

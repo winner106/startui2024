@@ -56,8 +56,8 @@ export default function PageLogin() {
         </Button>
       </Stack>
 
-      <OAuthLoginButtonsGrid />
-      <OAuthLoginDivider />
+      {/* <OAuthLoginButtonsGrid /> */}
+      {/* <OAuthLoginDivider /> */}
 
       <LoginForm onSuccess={handleOnSuccess} />
     </Stack>
