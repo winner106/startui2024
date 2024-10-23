@@ -3,7 +3,7 @@
     "title": "Products",
     "empty": "No products",
     "actions": {
-      "createRepository": "Create Product",
+      "createProduct": "Create Product",
       "view": "View"
     },
     "loadMore": {
@@ -16,11 +16,11 @@
     "message": "Would you like to delete \"{{name}}\" ? Delete will be permanent."
   },
   "feedbacks": {
-    "deleteRepositoryError": {
+    "deleteProductError": {
       "title": "Deletion Failed",
       "description": "Fail to remove product"
     },
-    "loadingRepositoryError": {
+    "loadingProductError": {
       "title": "Failed to load products"
     }
   },

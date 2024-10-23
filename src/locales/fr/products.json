@@ -2,7 +2,7 @@
   "list": {
     "title": "Dépôts",
     "actions": {
-      "createRepository": "Créer un dépôt",
+      "createProduct": "Créer un dépôt",
       "view": "Voir"
     },
     "loadMore": {
@@ -12,11 +12,11 @@
     "empty": "Aucun dépôt"
   },
   "feedbacks": {
-    "deleteRepositoryError": {
+    "deleteProductError": {
       "title": "Échec de la suppression",
       "description": "Échec de la suppression du dépôt"
     },
-    "loadingRepositoryError": {
+    "loadingProductError": {
       "title": "Échec du chargement des dépôts"
     }
   },

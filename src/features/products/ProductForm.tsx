@@ -9,11 +9,11 @@ import {
   FormFieldController,
   FormFieldLabel,
 } from '@/components/Form';
-import { FormFieldsRepository } from '@/features/products/schemas';
+import { FormFieldsProduct } from '@/features/products/schemas';
 
-export const RepositoryForm = () => {
+export const ProductForm = () => {
   const { t } = useTranslation(['common', 'products']);
-  const form = useFormContext<FormFieldsRepository>();
+  const form = useFormContext<FormFieldsProduct>();
 
   return (
     <Stack spacing={4}>

@@ -20,8 +20,8 @@ export const MarketingBento = () => {
           target="_blank"
         >
           <Image
-            src="https://raw.githubusercontent.com/BearStudio/assets/main/start-ui/marketing-bento-01.jpg"
-            alt="Marketing content. Follow link for more info"
+            src="/images/logo.png"
+            alt="推广内容，点击查看详情介绍"
             width={420}
             height={600}
             sizes="420px"
@@ -40,8 +40,8 @@ export const MarketingBento = () => {
           target="_blank"
         >
           <Image
-            src="https://raw.githubusercontent.com/BearStudio/assets/main/start-ui/marketing-bento-02.jpg"
-            alt="Marketing content. Follow link for more info"
+            src="/images/logo.png"
+            alt="推广内容，点击查看详情介绍"
             width={420}
             height={290}
             sizes="420px"
@@ -61,8 +61,8 @@ export const MarketingBento = () => {
           target="_blank"
         >
           <Image
-            src="https://raw.githubusercontent.com/BearStudio/assets/main/start-ui/marketing-bento-03.jpg"
-            alt="Marketing content. Follow link for more info"
+            src="/images/logo.png"
+            alt="推广内容，点击查看详情介绍"
             width={420}
             height={600}
             sizes="420px"
@@ -81,8 +81,8 @@ export const MarketingBento = () => {
           target="_blank"
         >
           <Image
-            src="https://raw.githubusercontent.com/BearStudio/assets/main/start-ui/marketing-bento-04.jpg"
-            alt="Marketing content. Follow link for more info"
+            src="/images/logo.png"
+            alt="推广内容，点击查看详情介绍"
             width={420}
             height={290}
             sizes="420px"
@@ -96,7 +96,7 @@ export const MarketingBento = () => {
         textAlign="center"
         style={{ textWrap: 'balance' }}
       >
-        Shameless plug 😅 Remember that 🚀 Start UI is free and Open Source 😉
+        推广一下 🚀 凡是遇到麻烦的事情 😅 请记得联系我们 😉，微信：coopwin888
       </Text>
     </Grid>
   );

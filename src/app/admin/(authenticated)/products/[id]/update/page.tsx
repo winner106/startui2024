@@ -2,12 +2,12 @@
 
 import { Suspense } from 'react';
 
-import PageAdminRepositoryUpdate from '@/features/products/PageAdminRepositoryUpdate';
+import PageAdminProductUpdate from '@/features/products/PageAdminProductUpdate';
 
 export default function Page() {
   return (
     <Suspense>
-      <PageAdminRepositoryUpdate />
+      <PageAdminProductUpdate />
     </Suspense>
   );
 }

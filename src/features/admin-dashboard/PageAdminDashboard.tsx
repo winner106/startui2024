@@ -13,7 +13,7 @@ import {
   Wrap,
 } from '@chakra-ui/react';
 import { Trans, useTranslation } from 'react-i18next';
-import { LuAlertCircle, LuBookOpen, LuGithub } from 'react-icons/lu';
+import { LuDatabase, LuNetwork, LuTable } from 'react-icons/lu';
 
 import {
   AdminLayoutPage,
@@ -39,7 +39,7 @@ export default function PageAdminDashboard() {
               <AlertDescription display="block">
                 {t('adminDashboard:welcome.description')}
                 <br />
-                <Text as="a" href="https://www.bearstudio.fr">
+                <Text as="a" href="https://excel520.taobao.com" target="_blank">
                   <Trans t={t} i18nKey="adminDashboard:welcome.author" />
                 </Text>
               </AlertDescription>
@@ -49,8 +49,9 @@ export default function PageAdminDashboard() {
             <Button
               size="sm"
               as="a"
-              href="https://github.com/BearStudio/start-ui-web"
-              leftIcon={<LuGithub />}
+              href="https://excel520.taobao.com"
+              target="_blank"
+              leftIcon={<LuTable />}
             >
               {t('adminDashboard:links.github')}
             </Button>
@@ -58,7 +59,8 @@ export default function PageAdminDashboard() {
               size="sm"
               as="a"
               href="https://docs.web.start-ui.com"
-              leftIcon={<LuBookOpen />}
+              target="_blank"
+              leftIcon={<LuDatabase />}
             >
               {t('adminDashboard:links.documentation')}
             </Button>
@@ -66,12 +68,13 @@ export default function PageAdminDashboard() {
               size="sm"
               as="a"
               href="https://github.com/BearStudio/start-ui/issues/new"
-              leftIcon={<LuAlertCircle />}
+              target="_blank"
+              leftIcon={<LuNetwork />}
             >
               {t('adminDashboard:links.openIssue')}
             </Button>
           </Wrap>
-          <MarketingBento />
+          {/* <MarketingBento /> */}
         </Stack>
       </AdminLayoutPageContent>
     </AdminLayoutPage>

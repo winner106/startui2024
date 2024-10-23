@@ -107,7 +107,7 @@ export default function PageAdminUsers() {
               .map((user) => (
                 <DataListRow as={LinkBox} key={user.id} withHover>
                   <DataListCell w="auto">
-                    <Avatar size="sm" name={user.email ?? ''} />
+                    <Avatar size="sm" name={user.name ?? ''} />
                   </DataListCell>
                   <DataListCell flex={2}>
                     <DataListText fontWeight="bold">

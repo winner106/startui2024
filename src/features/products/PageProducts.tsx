@@ -19,7 +19,7 @@ import { LoaderFull } from '@/components/LoaderFull';
 import { AppLayoutPage } from '@/features/app/AppLayoutPage';
 import { trpc } from '@/lib/trpc/client';
 
-export default function PageRepositories() {
+export default function PageProducts() {
   const { t } = useTranslation(['products']);
 
   const products = trpc.products.getAll.useInfiniteQuery(

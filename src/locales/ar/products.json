@@ -2,7 +2,7 @@
   "list": {
     "title": "المستودعات",
     "actions": {
-      "createRepository": "إنشاء مستودع",
+      "createProduct": "إنشاء مستودع",
       "view": "منظر"
     },
     "loadMore": {
@@ -12,11 +12,11 @@
     "empty": "لا مستودعات"
   },
   "feedbacks": {
-    "deleteRepositoryError": {
+    "deleteProductError": {
       "title": "فشل الحذف",
       "description": "فشل إزالة مستودع"
     },
-    "loadingRepositoryError": {
+    "loadingProductError": {
       "title": "فشل تحميل المستودعات"
     }
   },

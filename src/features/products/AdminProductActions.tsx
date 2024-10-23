@@ -17,49 +17,49 @@ import { ActionsButton } from '@/components/ActionsButton';
 import { ConfirmModal } from '@/components/ConfirmModal';
 import { Icon } from '@/components/Icons';
 import { toastCustom } from '@/components/Toast';
-import { ROUTES_REPOSITORIES } from '@/features/products/routes';
+import { ROUTES_PRODUCTS } from '@/features/products/routes';
 import { trpc } from '@/lib/trpc/client';
 import type { RouterOutputs } from '@/lib/trpc/types';
 
-export type RepositoryActionProps = Omit<MenuProps, 'children'> & {
+export type ProductActionProps = Omit<MenuProps, 'children'> & {
   product: RouterOutputs['products']['getAll']['items'][number];
 };
 
-export const AdminRepositoryActions = ({
+export const AdminProductActions = ({
   product,
   ...rest
-}: RepositoryActionProps) => {
+}: ProductActionProps) => {
   const { t } = useTranslation(['common', 'products']);
   const trpcUtils = trpc.useUtils();
 
-  const repositoryRemove = trpc.products.removeById.useMutation({
+  const productRemove = trpc.products.removeById.useMutation({
     onSuccess: async () => {
       await trpcUtils.products.getAll.invalidate();
     },
     onError: () => {
       toastCustom({
         status: 'error',
-        title: t('products:feedbacks.deleteRepositoryError.title'),
-        description: t('products:feedbacks.deleteRepositoryError.description'),
+        title: t('products:feedbacks.deleteProductError.title'),
+        description: t('products:feedbacks.deleteProductError.description'),
       });
     },
   });
 
   return (
     <Menu placement="left-start" {...rest}>
-      <MenuButton as={ActionsButton} isLoading={repositoryRemove.isLoading} />
+      <MenuButton as={ActionsButton} isLoading={productRemove.isLoading} />
       <Portal>
         <MenuList>
           <MenuItem
             as={Link}
-            href={ROUTES_REPOSITORIES.admin.product({ id: product.id })}
+            href={ROUTES_PRODUCTS.admin.product({ id: product.id })}
             icon={<Icon icon={LuEye} fontSize="lg" color="gray.400" />}
           >
             {t('products:list.actions.view')}
           </MenuItem>
           <MenuItem
             as={Link}
-            href={ROUTES_REPOSITORIES.admin.update({ id: product.id })}
+            href={ROUTES_PRODUCTS.admin.update({ id: product.id })}
             icon={<Icon icon={LuPenLine} fontSize="lg" color="gray.400" />}
           >
             {t('common:actions.edit')}
@@ -70,7 +70,7 @@ export const AdminRepositoryActions = ({
             message={t('products:deleteModal.message', {
               name: product.name,
             })}
-            onConfirm={() => repositoryRemove.mutate({ id: product.id })}
+            onConfirm={() => productRemove.mutate({ id: product.id })}
             confirmText={t('common:actions.delete')}
             confirmVariant="@dangerSecondary"
           >

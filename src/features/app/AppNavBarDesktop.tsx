@@ -18,7 +18,7 @@ import { Icon } from '@/components/Icons';
 import { Logo } from '@/components/Logo';
 import { ROUTES_ACCOUNT } from '@/features/account/routes';
 import { ROUTES_APP } from '@/features/app/routes';
-import { ROUTES_REPOSITORIES } from '@/features/products/routes';
+import { ROUTES_PRODUCTS } from '@/features/products/routes';
 import { trpc } from '@/lib/trpc/client';
 
 export const AppNavBarDesktop = (props: BoxProps) => {
@@ -45,7 +45,7 @@ export const AppNavBarDesktop = (props: BoxProps) => {
                 {t('app:layout.mainMenu.home')}
               </AppNavBarDesktopMainMenuItem>
               <AppNavBarDesktopMainMenuItem
-                href={ROUTES_REPOSITORIES.app.root()}
+                href={ROUTES_PRODUCTS.app.root()}
                 icon={LuFolderGit2}
               >
                 {t('app:layout.mainMenu.products')}

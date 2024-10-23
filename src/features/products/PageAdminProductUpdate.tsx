@@ -17,15 +17,15 @@ import {
   AdminLayoutPageContent,
   AdminLayoutPageTopBar,
 } from '@/features/admin/AdminLayoutPage';
-import { RepositoryForm } from '@/features/products/RepositoryForm';
+import { ProductForm } from '@/features/products/ProductForm';
 import {
-  FormFieldsRepository,
-  zFormFieldsRepository,
+  FormFieldsProduct,
+  zFormFieldsProduct,
 } from '@/features/products/schemas';
 import { trpc } from '@/lib/trpc/client';
 import { isErrorDatabaseConflict } from '@/lib/trpc/errors';
 
-export default function PageAdminRepositoryUpdate() {
+export default function PageAdminProductUpdate() {
   const { t } = useTranslation(['common', 'products']);
   const trpcUtils = trpc.useUtils();
 
@@ -42,7 +42,7 @@ export default function PageAdminRepositoryUpdate() {
 
   const isReady = !product.isFetching;
 
-  const updateRepository = trpc.products.updateById.useMutation({
+  const updateProduct = trpc.products.updateById.useMutation({
     onSuccess: async () => {
       await trpcUtils.products.invalidate();
       toastCustom({
@@ -65,8 +65,8 @@ export default function PageAdminRepositoryUpdate() {
     },
   });
 
-  const form = useForm<FormFieldsRepository>({
-    resolver: zodResolver(zFormFieldsRepository()),
+  const form = useForm<FormFieldsProduct>({
+    resolver: zodResolver(zFormFieldsProduct()),
     values: {
       name: product.data?.name ?? '',
       link: product.data?.link ?? '',
@@ -79,7 +79,7 @@ export default function PageAdminRepositoryUpdate() {
       {...form}
       onSubmit={(values) => {
         if (!product.data?.id) return;
-        updateRepository.mutate({
+        updateProduct.mutate({
           id: product.data.id,
           ...values,
         });
@@ -94,9 +94,7 @@ export default function PageAdminRepositoryUpdate() {
               <Button
                 type="submit"
                 variant="@primary"
-                isLoading={
-                  updateRepository.isLoading || updateRepository.isSuccess
-                }
+                isLoading={updateProduct.isLoading || updateProduct.isSuccess}
               >
                 {t('products:update.action.save')}
               </Button>
@@ -114,7 +112,7 @@ export default function PageAdminRepositoryUpdate() {
         {isReady && product.isError && <ErrorPage />}
         {isReady && product.isSuccess && (
           <AdminLayoutPageContent>
-            <RepositoryForm />
+            <ProductForm />
           </AdminLayoutPageContent>
         )}
       </AdminLayoutPage>

@@ -15,20 +15,20 @@ import {
   AdminLayoutPageContent,
   AdminLayoutPageTopBar,
 } from '@/features/admin/AdminLayoutPage';
-import { RepositoryForm } from '@/features/products/RepositoryForm';
+import { ProductForm } from '@/features/products/ProductForm';
 import {
-  FormFieldsRepository,
-  zFormFieldsRepository,
+  FormFieldsProduct,
+  zFormFieldsProduct,
 } from '@/features/products/schemas';
 import { trpc } from '@/lib/trpc/client';
 import { isErrorDatabaseConflict } from '@/lib/trpc/errors';
 
-export default function PageAdminRepositoryCreate() {
+export default function PageAdminProductCreate() {
   const { t } = useTranslation(['common', 'products']);
   const trpcUtils = trpc.useUtils();
   const router = useRouter();
 
-  const createRepository = trpc.products.create.useMutation({
+  const createProduct = trpc.products.create.useMutation({
     onSuccess: async () => {
       await trpcUtils.products.getAll.invalidate();
       toastCustom({
@@ -51,8 +51,8 @@ export default function PageAdminRepositoryCreate() {
     },
   });
 
-  const form = useForm<FormFieldsRepository>({
-    resolver: zodResolver(zFormFieldsRepository()),
+  const form = useForm<FormFieldsProduct>({
+    resolver: zodResolver(zFormFieldsProduct()),
     defaultValues: {
       name: '',
       link: '',
@@ -64,7 +64,7 @@ export default function PageAdminRepositoryCreate() {
     <Form
       {...form}
       onSubmit={(values) => {
-        createRepository.mutate(values);
+        createProduct.mutate(values);
       }}
     >
       <AdminLayoutPage containerMaxWidth="container.md" showNavBar={false}>
@@ -76,9 +76,7 @@ export default function PageAdminRepositoryCreate() {
               <Button
                 type="submit"
                 variant="@primary"
-                isLoading={
-                  createRepository.isLoading || createRepository.isSuccess
-                }
+                isLoading={createProduct.isLoading || createProduct.isSuccess}
               >
                 {t('products:create.action.save')}
               </Button>
@@ -88,7 +86,7 @@ export default function PageAdminRepositoryCreate() {
           <Heading size="sm">{t('products:create.title')}</Heading>
         </AdminLayoutPageTopBar>
         <AdminLayoutPageContent>
-          <RepositoryForm />
+          <ProductForm />
         </AdminLayoutPageContent>
       </AdminLayoutPage>
     </Form>

@@ -31,11 +31,11 @@ import {
   AdminLayoutPage,
   AdminLayoutPageContent,
 } from '@/features/admin/AdminLayoutPage';
-import { AdminRepositoryActions } from '@/features/products/AdminRepositoryActions';
-import { ROUTES_REPOSITORIES } from '@/features/products/routes';
+import { AdminProductActions } from '@/features/products/AdminProductActions';
+import { ROUTES_PRODUCTS } from '@/features/products/routes';
 import { trpc } from '@/lib/trpc/client';
 
-export default function PageAdminRepositories() {
+export default function PageAdminProducts() {
   const { t } = useTranslation(['products']);
   const [searchTerm, setSearchTerm] = useQueryState('s', { defaultValue: '' });
 
@@ -70,12 +70,12 @@ export default function PageAdminRepositories() {
             </Flex>
             <ResponsiveIconButton
               as={Link}
-              href={ROUTES_REPOSITORIES.admin.create()}
+              href={ROUTES_PRODUCTS.admin.create()}
               variant="@primary"
               size="sm"
               icon={<LuPlus />}
             >
-              {t('products:list.actions.createRepository')}
+              {t('products:list.actions.createProduct')}
             </ResponsiveIconButton>
           </HStack>
 
@@ -83,7 +83,7 @@ export default function PageAdminRepositories() {
             {products.isLoading && <DataListLoadingState />}
             {products.isError && (
               <DataListErrorState
-                title={t('products:feedbacks.loadingRepositoryError.title')}
+                title={t('products:feedbacks.loadingProductError.title')}
                 retry={() => products.refetch()}
               />
             )}
@@ -105,7 +105,7 @@ export default function PageAdminRepositories() {
                     <DataListText fontWeight="bold">
                       <LinkOverlay
                         as={Link}
-                        href={ROUTES_REPOSITORIES.admin.product({
+                        href={ROUTES_PRODUCTS.admin.product({
                           id: product.id,
                         })}
                       >
@@ -122,7 +122,7 @@ export default function PageAdminRepositories() {
                     </DataListText>
                   </DataListCell>
                   <DataListCell w="auto">
-                    <AdminRepositoryActions product={product} />
+                    <AdminProductActions product={product} />
                   </DataListCell>
                 </DataListRow>
               ))}

@@ -1,13 +1,13 @@
 {
-  "title": "报表",
+  "title": "首页",
   "welcome": {
     "title": "欢迎来到 🚀 现代办公效率提升平台",
     "description": "主要使用 WPS、Excel、影刀、JavaScript 和 AI 等工具，提升工作效率！",
     "author": "— 来自 <strong>办公效率 Plus 团队</strong>"
   },
   "links": {
-    "github": "GitHub 仓库",
-    "openIssue": "打开问题",
-    "documentation": "文档"
+    "github": "表格制作",
+    "documentation": "数据处理",
+    "openIssue": "网站设计"
   }
 }

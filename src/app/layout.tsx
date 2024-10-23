@@ -9,9 +9,9 @@ import { getEnvHintTitlePrefix } from '@/features/devtools/EnvHint';
 export const metadata: Metadata = {
   title: {
     template: `${getEnvHintTitlePrefix()} %s`,
-    default: `${getEnvHintTitlePrefix()} Start UI [web]`,
+    default: `${getEnvHintTitlePrefix()} 办公效率Plus`,
   },
-  applicationName: 'Start UI [web]',
+  applicationName: '办公效率Plus',
   description: 'Opinionated UI starter',
 };
 

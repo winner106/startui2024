@@ -2,7 +2,7 @@
   "list": {
     "title": "hazina",
     "actions": {
-      "createRepository": "Unda Hifadhi",
+      "createProduct": "Unda Hifadhi",
       "view": "Tazama"
     },
     "loadMore": {
@@ -12,11 +12,11 @@
     "empty": "Hakuna hazina"
   },
   "feedbacks": {
-    "deleteRepositoryError": {
+    "deleteProductError": {
       "title": "Imeshindwa Kufuta",
       "description": "Imeshindwa kuondoa hazina ya."
     },
-    "loadingRepositoryError": {
+    "loadingProductError": {
       "title": "Imeshindwa kupakia hazina"
     }
   },

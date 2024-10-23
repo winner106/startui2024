@@ -14,12 +14,7 @@ import {
   Wrap,
 } from '@chakra-ui/react';
 import { Trans, useTranslation } from 'react-i18next';
-import {
-  LuAlertCircle,
-  LuArrowRight,
-  LuBookOpen,
-  LuGithub,
-} from 'react-icons/lu';
+import { LuArrowRight, LuDatabase, LuNetwork, LuTable } from 'react-icons/lu';
 
 import { Icon } from '@/components/Icons';
 import { Logo } from '@/components/Logo';
@@ -49,7 +44,7 @@ export default function PageHome() {
           <Text display="block">
             {t('appHome:welcome.description')}
             <br />
-            <Text as="a" href="https://www.bearstudio.fr">
+            <Text as="a" href="https://excel520.taobao.com" target="_blank">
               <Trans t={t} i18nKey="appHome:welcome.author" />
             </Text>
           </Text>
@@ -59,24 +54,27 @@ export default function PageHome() {
           <Button
             size="sm"
             as="a"
-            href="https://github.com/BearStudio/start-ui-web"
-            leftIcon={<LuGithub />}
+            href="https://excel520.taobao.com"
+            target="_blank"
+            leftIcon={<LuTable />}
           >
             {t('appHome:links.github')}
           </Button>
           <Button
             size="sm"
             as="a"
-            href="https://docs.web.start-ui.com"
-            leftIcon={<LuBookOpen />}
+            href="https://excel520.taobao.com"
+            target="_blank"
+            leftIcon={<LuDatabase />}
           >
             {t('appHome:links.documentation')}
           </Button>
           <Button
             size="sm"
             as="a"
-            href="https://github.com/BearStudio/start-ui/issues/new"
-            leftIcon={<LuAlertCircle />}
+            href="https://excel520.taobao.com"
+            target="_blank"
+            leftIcon={<LuNetwork />}
           >
             {t('appHome:links.openIssue')}
           </Button>
@@ -96,7 +94,7 @@ export default function PageHome() {
             </Link>
           </Alert>
         )}
-        <MarketingBento />
+        {/* <MarketingBento /> */}
       </Stack>
     </AppLayoutPage>
   );

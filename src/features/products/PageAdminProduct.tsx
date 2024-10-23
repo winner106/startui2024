@@ -27,10 +27,10 @@ import {
   AdminLayoutPageContent,
   AdminLayoutPageTopBar,
 } from '@/features/admin/AdminLayoutPage';
-import { ROUTES_REPOSITORIES } from '@/features/products/routes';
+import { ROUTES_PRODUCTS } from '@/features/products/routes';
 import { trpc } from '@/lib/trpc/client';
 
-export default function PageAdminRepository() {
+export default function PageAdminProduct() {
   const { t } = useTranslation(['common', 'products']);
 
   const trpcUtils = trpc.useUtils();
@@ -41,16 +41,16 @@ export default function PageAdminRepository() {
     id: params?.id?.toString() ?? '',
   });
 
-  const repositoryRemove = trpc.products.removeById.useMutation({
+  const productRemove = trpc.products.removeById.useMutation({
     onSuccess: async () => {
       await trpcUtils.products.getAll.invalidate();
-      router.replace(ROUTES_REPOSITORIES.admin.root());
+      router.replace(ROUTES_PRODUCTS.admin.root());
     },
     onError: () => {
       toastCustom({
         status: 'error',
-        title: t('products:feedbacks.deleteRepositoryError.title'),
-        description: t('products:feedbacks.deleteRepositoryError.description'),
+        title: t('products:feedbacks.deleteProductError.title'),
+        description: t('products:feedbacks.deleteProductError.description'),
       });
     },
   });
@@ -63,7 +63,7 @@ export default function PageAdminRepository() {
           <>
             <ResponsiveIconButton
               as={Link}
-              href={ROUTES_REPOSITORIES.admin.update({
+              href={ROUTES_PRODUCTS.admin.update({
                 id: params?.id?.toString() ?? 'unknown',
               })}
               isDisabled={!params?.id}
@@ -79,7 +79,7 @@ export default function PageAdminRepository() {
               })}
               onConfirm={() =>
                 product.data &&
-                repositoryRemove.mutate({
+                productRemove.mutate({
                   id: product.data.id,
                 })
               }
@@ -90,7 +90,7 @@ export default function PageAdminRepository() {
                 aria-label={t('common:actions.delete')}
                 icon={<LuTrash2 />}
                 isDisabled={!product.data}
-                isLoading={repositoryRemove.isLoading}
+                isLoading={productRemove.isLoading}
               />
             </ConfirmModal>
           </>

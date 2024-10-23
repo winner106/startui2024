@@ -3,7 +3,7 @@
     "title": "产品",
     "empty": "没有产品",
     "actions": {
-      "createRepository": "创建产品",
+      "createProduct": "创建产品",
       "view": "查看"
     },
     "loadMore": {
@@ -16,11 +16,11 @@
     "message": "您确定要删除 \"{{name}}\" 吗？删除将是永久的。"
   },
   "feedbacks": {
-    "deleteRepositoryError": {
+    "deleteProductError": {
       "title": "删除失败",
       "description": "无法移除产品"
     },
-    "loadingRepositoryError": {
+    "loadingProductError": {
       "title": "加载产品失败"
     }
   },

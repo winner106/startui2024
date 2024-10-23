@@ -25,8 +25,6 @@ export const zProduct = () =>
     description: zu.string.nonEmptyNullable(z.string()),
   });
 
-export type FormFieldsRepository = z.infer<
-  ReturnType<typeof zFormFieldsRepository>
->;
-export const zFormFieldsRepository = () =>
+export type FormFieldsProduct = z.infer<ReturnType<typeof zFormFieldsProduct>>;
+export const zFormFieldsProduct = () =>
   zProduct().pick({ name: true, link: true, description: true });

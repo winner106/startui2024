@@ -6,7 +6,7 @@ import { zProduct } from '@/features/products/schemas';
 import { ExtendedTRPCError } from '@/server/config/errors';
 import { createTRPCRouter, protectedProcedure } from '@/server/config/trpc';
 
-export const repositoriesRouter = createTRPCRouter({
+export const productsRouter = createTRPCRouter({
   getById: protectedProcedure({ authorizations: ['APP', 'ADMIN'] })
     .meta({
       openapi: {
