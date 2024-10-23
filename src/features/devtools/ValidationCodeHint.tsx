@@ -24,7 +24,7 @@ export const ValidationCodeHint = () => {
         {env.NEXT_PUBLIC_IS_DEMO ? 'Demo mode' : env.NEXT_PUBLIC_NODE_ENV}
       </AlertTitle>
       <AlertDescription>
-        To quickly connect, use the code{' '}
+        快速登陆体验, 请使用这个验证码，点击自动填写→{' '}
         <ChakraLink
           as="button"
           type="button"

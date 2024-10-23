@@ -15,38 +15,38 @@ import {
   AdminLayoutPageContent,
   AdminLayoutPageTopBar,
 } from '@/features/admin/AdminLayoutPage';
-import { RepositoryForm } from '@/features/repositories/RepositoryForm';
+import { RepositoryForm } from '@/features/products/RepositoryForm';
 import {
   FormFieldsRepository,
   zFormFieldsRepository,
-} from '@/features/repositories/schemas';
+} from '@/features/products/schemas';
 import { trpc } from '@/lib/trpc/client';
 import { isErrorDatabaseConflict } from '@/lib/trpc/errors';
 
 export default function PageAdminRepositoryCreate() {
-  const { t } = useTranslation(['common', 'repositories']);
+  const { t } = useTranslation(['common', 'products']);
   const trpcUtils = trpc.useUtils();
   const router = useRouter();
 
-  const createRepository = trpc.repositories.create.useMutation({
+  const createRepository = trpc.products.create.useMutation({
     onSuccess: async () => {
-      await trpcUtils.repositories.getAll.invalidate();
+      await trpcUtils.products.getAll.invalidate();
       toastCustom({
         status: 'success',
-        title: t('repositories:create.feedbacks.updateSuccess.title'),
+        title: t('products:create.feedbacks.updateSuccess.title'),
       });
       router.back();
     },
     onError: (error) => {
       if (isErrorDatabaseConflict(error, 'name')) {
         form.setError('name', {
-          message: t('repositories:data.name.alreadyUsed'),
+          message: t('products:data.name.alreadyUsed'),
         });
         return;
       }
       toastCustom({
         status: 'error',
-        title: t('repositories:create.feedbacks.updateError.title'),
+        title: t('products:create.feedbacks.updateError.title'),
       });
     },
   });
@@ -80,12 +80,12 @@ export default function PageAdminRepositoryCreate() {
                   createRepository.isLoading || createRepository.isSuccess
                 }
               >
-                {t('repositories:create.action.save')}
+                {t('products:create.action.save')}
               </Button>
             </>
           }
         >
-          <Heading size="sm">{t('repositories:create.title')}</Heading>
+          <Heading size="sm">{t('products:create.title')}</Heading>
         </AdminLayoutPageTopBar>
         <AdminLayoutPageContent>
           <RepositoryForm />

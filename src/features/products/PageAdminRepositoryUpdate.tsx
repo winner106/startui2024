@@ -17,21 +17,21 @@ import {
   AdminLayoutPageContent,
   AdminLayoutPageTopBar,
 } from '@/features/admin/AdminLayoutPage';
-import { RepositoryForm } from '@/features/repositories/RepositoryForm';
+import { RepositoryForm } from '@/features/products/RepositoryForm';
 import {
   FormFieldsRepository,
   zFormFieldsRepository,
-} from '@/features/repositories/schemas';
+} from '@/features/products/schemas';
 import { trpc } from '@/lib/trpc/client';
 import { isErrorDatabaseConflict } from '@/lib/trpc/errors';
 
 export default function PageAdminRepositoryUpdate() {
-  const { t } = useTranslation(['common', 'repositories']);
+  const { t } = useTranslation(['common', 'products']);
   const trpcUtils = trpc.useUtils();
 
   const params = useParams();
   const router = useRouter();
-  const repository = trpc.repositories.getById.useQuery(
+  const product = trpc.products.getById.useQuery(
     {
       id: params?.id?.toString() ?? '',
     },
@@ -40,27 +40,27 @@ export default function PageAdminRepositoryUpdate() {
     }
   );
 
-  const isReady = !repository.isFetching;
+  const isReady = !product.isFetching;
 
-  const updateRepository = trpc.repositories.updateById.useMutation({
+  const updateRepository = trpc.products.updateById.useMutation({
     onSuccess: async () => {
-      await trpcUtils.repositories.invalidate();
+      await trpcUtils.products.invalidate();
       toastCustom({
         status: 'success',
-        title: t('repositories:update.feedbacks.updateSuccess.title'),
+        title: t('products:update.feedbacks.updateSuccess.title'),
       });
       router.back();
     },
     onError: (error) => {
       if (isErrorDatabaseConflict(error, 'name')) {
         form.setError('name', {
-          message: t('repositories:data.name.alreadyUsed'),
+          message: t('products:data.name.alreadyUsed'),
         });
         return;
       }
       toastCustom({
         status: 'error',
-        title: t('repositories:update.feedbacks.updateError.title'),
+        title: t('products:update.feedbacks.updateError.title'),
       });
     },
   });
@@ -68,9 +68,9 @@ export default function PageAdminRepositoryUpdate() {
   const form = useForm<FormFieldsRepository>({
     resolver: zodResolver(zFormFieldsRepository()),
     values: {
-      name: repository.data?.name ?? '',
-      link: repository.data?.link ?? '',
-      description: repository.data?.description ?? null,
+      name: product.data?.name ?? '',
+      link: product.data?.link ?? '',
+      description: product.data?.description ?? null,
     },
   });
 
@@ -78,9 +78,9 @@ export default function PageAdminRepositoryUpdate() {
     <Form
       {...form}
       onSubmit={(values) => {
-        if (!repository.data?.id) return;
+        if (!product.data?.id) return;
         updateRepository.mutate({
-          id: repository.data.id,
+          id: product.data.id,
           ...values,
         });
       }}
@@ -98,21 +98,21 @@ export default function PageAdminRepositoryUpdate() {
                   updateRepository.isLoading || updateRepository.isSuccess
                 }
               >
-                {t('repositories:update.action.save')}
+                {t('products:update.action.save')}
               </Button>
             </>
           }
         >
           <Stack flex={1} spacing={0}>
-            {repository.isLoading && <SkeletonText maxW="6rem" noOfLines={2} />}
-            {repository.isSuccess && (
-              <Heading size="sm">{repository.data?.name}</Heading>
+            {product.isLoading && <SkeletonText maxW="6rem" noOfLines={2} />}
+            {product.isSuccess && (
+              <Heading size="sm">{product.data?.name}</Heading>
             )}
           </Stack>
         </AdminLayoutPageTopBar>
         {!isReady && <LoaderFull />}
-        {isReady && repository.isError && <ErrorPage />}
-        {isReady && repository.isSuccess && (
+        {isReady && product.isError && <ErrorPage />}
+        {isReady && product.isSuccess && (
           <AdminLayoutPageContent>
             <RepositoryForm />
           </AdminLayoutPageContent>

@@ -2,7 +2,7 @@
   "layout": {
     "mainMenu": {
       "dashboard": "报表",
-      "repositories": "产品",
+      "products": "产品",
       "management": "管理"
     },
     "accountMenu": {

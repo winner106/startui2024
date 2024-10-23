@@ -1,9 +1,9 @@
-import { createRepositories } from 'prisma/seed/models/repository';
+import { createProducts } from 'prisma/seed/models/product';
 import { createUsers } from 'prisma/seed/models/user';
 import { prisma } from 'prisma/seed/utils';
 
 async function main() {
-  await createRepositories();
+  await createProducts();
   await createUsers();
 }
 

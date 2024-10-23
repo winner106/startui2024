@@ -53,7 +53,7 @@ import { ROUTES_APP } from '@/features/app/routes';
 import { ROUTES_AUTH } from '@/features/auth/routes';
 import { ROUTES_DOCS } from '@/features/docs/routes';
 import { ROUTES_MANAGEMENT } from '@/features/management/routes';
-import { ROUTES_REPOSITORIES } from '@/features/repositories/routes';
+import { ROUTES_REPOSITORIES } from '@/features/products/routes';
 import { useRtl } from '@/hooks/useRtl';
 import { trpc } from '@/lib/trpc/client';
 
@@ -67,7 +67,7 @@ const AdminNavBarMainMenu = ({ ...rest }: StackProps) => {
         {t('admin:layout.mainMenu.dashboard')}
       </AdminNavBarMainMenuItem>
       <AdminNavBarMainMenuItem href={ROUTES_REPOSITORIES.admin.root()}>
-        {t('admin:layout.mainMenu.repositories')}
+        {t('admin:layout.mainMenu.products')}
       </AdminNavBarMainMenuItem>
       <AdminNavBarMainMenuItem href={ROUTES_MANAGEMENT.admin.root()}>
         {t('admin:layout.mainMenu.management')}

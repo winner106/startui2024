@@ -23,7 +23,7 @@ export const LoginHint = () => {
         {env.NEXT_PUBLIC_IS_DEMO ? 'Demo mode' : env.NEXT_PUBLIC_NODE_ENV}
       </AlertTitle>
       <AlertDescription>
-        Enjoy the features! You can sign in with{' '}
+        体验本网站，你可以用这个邮箱登陆，点击自动填写→{' '}
         <ChakraLink
           as="button"
           type="button"

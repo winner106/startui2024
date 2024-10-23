@@ -1,27 +1,27 @@
 {
   "list": {
-    "title": "Repositories",
-    "empty": "No repositories",
+    "title": "Products",
+    "empty": "No products",
     "actions": {
-      "createRepository": "Create Repository",
+      "createRepository": "Create Product",
       "view": "View"
     },
     "loadMore": {
       "button": "Load more",
-      "display": "Showing {{loaded}} of {{total}} repositories"
+      "display": "Showing {{loaded}} of {{total}} products"
     }
   },
   "deleteModal": {
-    "title": "Confirm deleting the repository",
+    "title": "Confirm deleting the product",
     "message": "Would you like to delete \"{{name}}\" ? Delete will be permanent."
   },
   "feedbacks": {
     "deleteRepositoryError": {
       "title": "Deletion Failed",
-      "description": "Fail to remove repository"
+      "description": "Fail to remove product"
     },
     "loadingRepositoryError": {
-      "title": "Failed to load repositories"
+      "title": "Failed to load products"
     }
   },
   "data": {
@@ -59,12 +59,12 @@
         "title": "Creation failed"
       },
       "updateSuccess": {
-        "title": "Repository created with success"
+        "title": "Product created with success"
       }
     },
     "action": {
       "save": "Create"
     },
-    "title": "New Repository"
+    "title": "New Product"
   }
 }

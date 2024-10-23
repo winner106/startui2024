@@ -2,7 +2,7 @@ import { createTRPCRouter } from '@/server/config/trpc';
 import { accountRouter } from '@/server/routers/account';
 import { authRouter } from '@/server/routers/auth';
 import { oauthRouter } from '@/server/routers/oauth';
-import { repositoriesRouter } from '@/server/routers/repositories';
+import { repositoriesRouter } from '@/server/routers/products';
 import { usersRouter } from '@/server/routers/users';
 
 /**
@@ -14,7 +14,7 @@ export const appRouter = createTRPCRouter({
   account: accountRouter,
   auth: authRouter,
   oauth: oauthRouter,
-  repositories: repositoriesRouter,
+  products: repositoriesRouter,
   users: usersRouter,
 });
 

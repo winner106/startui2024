@@ -1,27 +1,27 @@
 {
   "list": {
-    "title": "仓库",
-    "empty": "没有仓库",
+    "title": "产品",
+    "empty": "没有产品",
     "actions": {
-      "createRepository": "创建仓库",
+      "createRepository": "创建产品",
       "view": "查看"
     },
     "loadMore": {
       "button": "加载更多",
-      "display": "显示 {{loaded}} / {{total}} 个仓库"
+      "display": "显示 {{loaded}} / {{total}} 个产品"
     }
   },
   "deleteModal": {
-    "title": "确认删除仓库",
+    "title": "确认删除产品",
     "message": "您确定要删除 \"{{name}}\" 吗？删除将是永久的。"
   },
   "feedbacks": {
     "deleteRepositoryError": {
       "title": "删除失败",
-      "description": "无法移除仓库"
+      "description": "无法移除产品"
     },
     "loadingRepositoryError": {
-      "title": "加载仓库失败"
+      "title": "加载产品失败"
     }
   },
   "data": {
@@ -59,12 +59,12 @@
         "title": "创建失败"
       },
       "updateSuccess": {
-        "title": "仓库创建成功"
+        "title": "产品创建成功"
       }
     },
     "action": {
       "save": "创建"
     },
-    "title": "新仓库"
+    "title": "新产品"
   }
 }

@@ -31,15 +31,15 @@ import {
   AdminLayoutPage,
   AdminLayoutPageContent,
 } from '@/features/admin/AdminLayoutPage';
-import { AdminRepositoryActions } from '@/features/repositories/AdminRepositoryActions';
-import { ROUTES_REPOSITORIES } from '@/features/repositories/routes';
+import { AdminRepositoryActions } from '@/features/products/AdminRepositoryActions';
+import { ROUTES_REPOSITORIES } from '@/features/products/routes';
 import { trpc } from '@/lib/trpc/client';
 
 export default function PageAdminRepositories() {
-  const { t } = useTranslation(['repositories']);
+  const { t } = useTranslation(['products']);
   const [searchTerm, setSearchTerm] = useQueryState('s', { defaultValue: '' });
 
-  const repositories = trpc.repositories.getAll.useInfiniteQuery(
+  const products = trpc.products.getAll.useInfiniteQuery(
     { searchTerm },
     {
       getNextPageParam: (lastPage) => lastPage.nextCursor,
@@ -59,7 +59,7 @@ export default function PageAdminRepositories() {
               flex={1}
             >
               <Heading flex="none" size="md">
-                {t('repositories:list.title')}
+                {t('products:list.title')}
               </Heading>
               <SearchInput
                 value={searchTerm}
@@ -75,29 +75,29 @@ export default function PageAdminRepositories() {
               size="sm"
               icon={<LuPlus />}
             >
-              {t('repositories:list.actions.createRepository')}
+              {t('products:list.actions.createRepository')}
             </ResponsiveIconButton>
           </HStack>
 
           <DataList>
-            {repositories.isLoading && <DataListLoadingState />}
-            {repositories.isError && (
+            {products.isLoading && <DataListLoadingState />}
+            {products.isError && (
               <DataListErrorState
-                title={t('repositories:feedbacks.loadingRepositoryError.title')}
-                retry={() => repositories.refetch()}
+                title={t('products:feedbacks.loadingRepositoryError.title')}
+                retry={() => products.refetch()}
               />
             )}
-            {repositories.isSuccess &&
-              !repositories.data.pages.flatMap((p) => p.items).length && (
+            {products.isSuccess &&
+              !products.data.pages.flatMap((p) => p.items).length && (
                 <DataListEmptyState searchTerm={searchTerm}>
-                  {t('repositories:list.empty')}
+                  {t('products:list.empty')}
                 </DataListEmptyState>
               )}
 
-            {repositories.data?.pages
+            {products.data?.pages
               .flatMap((p) => p.items)
-              .map((repository) => (
-                <DataListRow as={LinkBox} key={repository.id} withHover>
+              .map((product) => (
+                <DataListRow as={LinkBox} key={product.id} withHover>
                   <DataListCell w="auto">
                     <Icon icon={LuBookMarked} fontSize="xl" color="gray.400" />
                   </DataListCell>
@@ -105,55 +105,53 @@ export default function PageAdminRepositories() {
                     <DataListText fontWeight="bold">
                       <LinkOverlay
                         as={Link}
-                        href={ROUTES_REPOSITORIES.admin.repository({
-                          id: repository.id,
+                        href={ROUTES_REPOSITORIES.admin.product({
+                          id: product.id,
                         })}
                       >
-                        {repository.name}
+                        {product.name}
                       </LinkOverlay>
                     </DataListText>
                     <DataListText color="text-dimmed">
-                      {repository.link}
+                      {product.link}
                     </DataListText>
                   </DataListCell>
                   <DataListCell flex={2} display={{ base: 'none', md: 'flex' }}>
                     <DataListText noOfLines={2} color="text-dimmed">
-                      {repository.description}
+                      {product.description}
                     </DataListText>
                   </DataListCell>
                   <DataListCell w="auto">
-                    <AdminRepositoryActions repository={repository} />
+                    <AdminRepositoryActions product={product} />
                   </DataListCell>
                 </DataListRow>
               ))}
-            {repositories.isSuccess && (
+            {products.isSuccess && (
               <DataListRow mt="auto">
                 <DataListCell w="auto">
                   <Button
                     size="sm"
-                    onClick={() => repositories.fetchNextPage()}
-                    isLoading={repositories.isFetchingNextPage}
-                    isDisabled={!repositories.hasNextPage}
+                    onClick={() => products.fetchNextPage()}
+                    isLoading={products.isFetchingNextPage}
+                    isDisabled={!products.hasNextPage}
                   >
-                    {t('repositories:list.loadMore.button')}
+                    {t('products:list.loadMore.button')}
                   </Button>
                 </DataListCell>
                 <DataListCell>
-                  {repositories.isSuccess &&
-                    !!repositories.data.pages[0]?.total && (
-                      <Text fontSize="xs" color="text-dimmed">
-                        <Trans
-                          i18nKey="repositories:list.loadMore.display"
-                          t={t}
-                          values={{
-                            loaded: repositories.data.pages.flatMap(
-                              (p) => p.items
-                            ).length,
-                            total: repositories.data.pages[0].total,
-                          }}
-                        />
-                      </Text>
-                    )}
+                  {products.isSuccess && !!products.data.pages[0]?.total && (
+                    <Text fontSize="xs" color="text-dimmed">
+                      <Trans
+                        i18nKey="products:list.loadMore.display"
+                        t={t}
+                        values={{
+                          loaded: products.data.pages.flatMap((p) => p.items)
+                            .length,
+                          total: products.data.pages[0].total,
+                        }}
+                      />
+                    </Text>
+                  )}
                 </DataListCell>
               </DataListRow>
             )}

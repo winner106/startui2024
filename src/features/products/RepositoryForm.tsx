@@ -9,27 +9,27 @@ import {
   FormFieldController,
   FormFieldLabel,
 } from '@/components/Form';
-import { FormFieldsRepository } from '@/features/repositories/schemas';
+import { FormFieldsRepository } from '@/features/products/schemas';
 
 export const RepositoryForm = () => {
-  const { t } = useTranslation(['common', 'repositories']);
+  const { t } = useTranslation(['common', 'products']);
   const form = useFormContext<FormFieldsRepository>();
 
   return (
     <Stack spacing={4}>
       <FormField>
-        <FormFieldLabel>{t('repositories:data.name.label')}</FormFieldLabel>
+        <FormFieldLabel>{t('products:data.name.label')}</FormFieldLabel>
         <FormFieldController control={form.control} type="text" name="name" />
       </FormField>
 
       <FormField>
-        <FormFieldLabel>{t('repositories:data.link.label')}</FormFieldLabel>
+        <FormFieldLabel>{t('products:data.link.label')}</FormFieldLabel>
         <FormFieldController control={form.control} type="text" name="link" />
       </FormField>
 
       <FormField>
         <FormFieldLabel optionalityHint="optional">
-          {t('repositories:data.description.label')}
+          {t('products:data.description.label')}
         </FormFieldLabel>
         <FormFieldController
           control={form.control}

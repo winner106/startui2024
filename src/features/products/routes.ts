@@ -3,12 +3,12 @@ import { ROUTES_APP } from '@/features/app/routes';
 
 export const ROUTES_REPOSITORIES = {
   app: {
-    root: () => `${ROUTES_APP.baseUrl()}/repositories`,
+    root: () => `${ROUTES_APP.baseUrl()}/products`,
   },
   admin: {
-    root: () => `${ROUTES_ADMIN.baseUrl()}/repositories`,
+    root: () => `${ROUTES_ADMIN.baseUrl()}/products`,
     create: () => `${ROUTES_REPOSITORIES.admin.root()}/create`,
-    repository: (params: { id: string }) =>
+    product: (params: { id: string }) =>
       `${ROUTES_REPOSITORIES.admin.root()}/${params.id}`,
     update: (params: { id: string }) =>
       `${ROUTES_REPOSITORIES.admin.root()}/${params.id}/update`,

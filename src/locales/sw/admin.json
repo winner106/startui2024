@@ -2,7 +2,7 @@
   "layout": {
     "mainMenu": {
       "dashboard": "Dashibodi",
-      "repositories": "Hazina",
+      "products": "Hazina",
       "management": "Usimamizi"
     },
     "accountMenu": {

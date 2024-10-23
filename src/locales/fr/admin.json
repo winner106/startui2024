@@ -2,7 +2,7 @@
   "layout": {
     "mainMenu": {
       "dashboard": "Tableau de bord",
-      "repositories": "Dépôts",
+      "products": "Dépôts",
       "management": "Gestion"
     },
     "accountMenu": {

@@ -2,7 +2,7 @@ import { Prisma } from '@prisma/client';
 import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
 
-import { zRepository } from '@/features/repositories/schemas';
+import { zProduct } from '@/features/products/schemas';
 import { ExtendedTRPCError } from '@/server/config/errors';
 import { createTRPCRouter, protectedProcedure } from '@/server/config/trpc';
 
@@ -11,36 +11,36 @@ export const repositoriesRouter = createTRPCRouter({
     .meta({
       openapi: {
         method: 'GET',
-        path: '/repositories/{id}',
+        path: '/products/{id}',
         protect: true,
-        tags: ['repositories'],
+        tags: ['products'],
       },
     })
-    .input(zRepository().pick({ id: true }))
-    .output(zRepository())
+    .input(zProduct().pick({ id: true }))
+    .output(zProduct())
     .query(async ({ ctx, input }) => {
-      ctx.logger.info('Getting repository');
-      const repository = await ctx.db.repository.findUnique({
+      ctx.logger.info('Getting product');
+      const product = await ctx.db.product.findUnique({
         where: { id: input.id },
       });
 
-      if (!repository) {
-        ctx.logger.warn('Unable to find repository with the provided input');
+      if (!product) {
+        ctx.logger.warn('Unable to find product with the provided input');
         throw new TRPCError({
           code: 'NOT_FOUND',
         });
       }
 
-      return repository;
+      return product;
     }),
 
   getAll: protectedProcedure({ authorizations: ['APP', 'ADMIN'] })
     .meta({
       openapi: {
         method: 'GET',
-        path: '/repositories',
+        path: '/products',
         protect: true,
-        tags: ['repositories'],
+        tags: ['products'],
       },
     })
     .input(
@@ -54,26 +54,26 @@ export const repositoriesRouter = createTRPCRouter({
     )
     .output(
       z.object({
-        items: z.array(zRepository()),
+        items: z.array(zProduct()),
         nextCursor: z.string().cuid().optional(),
         total: z.number(),
       })
     )
     .query(async ({ ctx, input }) => {
-      ctx.logger.info('Getting repositories from database');
+      ctx.logger.info('Getting products from database');
 
       const where = {
         name: {
           contains: input.searchTerm,
           mode: 'insensitive',
         },
-      } satisfies Prisma.RepositoryWhereInput;
+      } satisfies Prisma.ProductWhereInput;
 
       const [total, items] = await ctx.db.$transaction([
-        ctx.db.repository.count({
+        ctx.db.product.count({
           where,
         }),
-        ctx.db.repository.findMany({
+        ctx.db.product.findMany({
           // Get an extra item at the end which we'll use as next cursor
           take: input.limit + 1,
           cursor: input.cursor ? { id: input.cursor } : undefined,
@@ -101,23 +101,23 @@ export const repositoriesRouter = createTRPCRouter({
     .meta({
       openapi: {
         method: 'POST',
-        path: '/repositories',
+        path: '/products',
         protect: true,
-        tags: ['repositories'],
+        tags: ['products'],
       },
     })
     .input(
-      zRepository().pick({
+      zProduct().pick({
         name: true,
         link: true,
         description: true,
       })
     )
-    .output(zRepository())
+    .output(zProduct())
     .mutation(async ({ ctx, input }) => {
       try {
-        ctx.logger.info('Creating repository');
-        return await ctx.db.repository.create({
+        ctx.logger.info('Creating product');
+        return await ctx.db.product.create({
           data: input,
         });
       } catch (e) {
@@ -131,24 +131,24 @@ export const repositoriesRouter = createTRPCRouter({
     .meta({
       openapi: {
         method: 'PUT',
-        path: '/repositories/{id}',
+        path: '/products/{id}',
         protect: true,
-        tags: ['repositories'],
+        tags: ['products'],
       },
     })
     .input(
-      zRepository().pick({
+      zProduct().pick({
         id: true,
         name: true,
         link: true,
         description: true,
       })
     )
-    .output(zRepository())
+    .output(zProduct())
     .mutation(async ({ ctx, input }) => {
       try {
-        ctx.logger.info('Updating repository');
-        return await ctx.db.repository.update({
+        ctx.logger.info('Updating product');
+        return await ctx.db.product.update({
           where: { id: input.id },
           data: input,
         });
@@ -163,17 +163,17 @@ export const repositoriesRouter = createTRPCRouter({
     .meta({
       openapi: {
         method: 'DELETE',
-        path: '/repositories/{id}',
+        path: '/products/{id}',
         protect: true,
-        tags: ['repositories'],
+        tags: ['products'],
       },
     })
-    .input(zRepository().pick({ id: true }))
-    .output(zRepository())
+    .input(zProduct().pick({ id: true }))
+    .output(zProduct())
     .mutation(async ({ ctx, input }) => {
-      ctx.logger.info({ input }, 'Removing repository');
+      ctx.logger.info({ input }, 'Removing product');
       try {
-        return await ctx.db.repository.delete({
+        return await ctx.db.product.delete({
           where: { id: input.id },
         });
       } catch (e) {

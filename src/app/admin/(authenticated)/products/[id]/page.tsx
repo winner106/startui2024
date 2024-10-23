@@ -2,7 +2,7 @@
 
 import { Suspense } from 'react';
 
-import PageAdminRepository from '@/features/repositories/PageAdminRepository';
+import PageAdminRepository from '@/features/products/PageAdminRepository';
 
 export default function Page() {
   return (

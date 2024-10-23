@@ -2,7 +2,7 @@
   "layout": {
     "mainMenu": {
       "dashboard": "اللوحة الرئيسية",
-      "repositories": "المستودعات",
+      "products": "المستودعات",
       "management": "إدارة"
     },
     "accountMenu": {

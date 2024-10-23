@@ -27,32 +27,30 @@ import {
   AdminLayoutPageContent,
   AdminLayoutPageTopBar,
 } from '@/features/admin/AdminLayoutPage';
-import { ROUTES_REPOSITORIES } from '@/features/repositories/routes';
+import { ROUTES_REPOSITORIES } from '@/features/products/routes';
 import { trpc } from '@/lib/trpc/client';
 
 export default function PageAdminRepository() {
-  const { t } = useTranslation(['common', 'repositories']);
+  const { t } = useTranslation(['common', 'products']);
 
   const trpcUtils = trpc.useUtils();
 
   const router = useRouter();
   const params = useParams();
-  const repository = trpc.repositories.getById.useQuery({
+  const product = trpc.products.getById.useQuery({
     id: params?.id?.toString() ?? '',
   });
 
-  const repositoryRemove = trpc.repositories.removeById.useMutation({
+  const repositoryRemove = trpc.products.removeById.useMutation({
     onSuccess: async () => {
-      await trpcUtils.repositories.getAll.invalidate();
+      await trpcUtils.products.getAll.invalidate();
       router.replace(ROUTES_REPOSITORIES.admin.root());
     },
     onError: () => {
       toastCustom({
         status: 'error',
-        title: t('repositories:feedbacks.deleteRepositoryError.title'),
-        description: t(
-          'repositories:feedbacks.deleteRepositoryError.description'
-        ),
+        title: t('products:feedbacks.deleteRepositoryError.title'),
+        description: t('products:feedbacks.deleteRepositoryError.description'),
       });
     },
   });
@@ -75,14 +73,14 @@ export default function PageAdminRepository() {
             </ResponsiveIconButton>
 
             <ConfirmModal
-              title={t('repositories:deleteModal.title')}
-              message={t('repositories:deleteModal.message', {
-                name: repository.data?.name,
+              title={t('products:deleteModal.title')}
+              message={t('products:deleteModal.message', {
+                name: product.data?.name,
               })}
               onConfirm={() =>
-                repository.data &&
+                product.data &&
                 repositoryRemove.mutate({
-                  id: repository.data.id,
+                  id: product.data.id,
                 })
               }
               confirmText={t('common:actions.delete')}
@@ -91,53 +89,49 @@ export default function PageAdminRepository() {
               <IconButton
                 aria-label={t('common:actions.delete')}
                 icon={<LuTrash2 />}
-                isDisabled={!repository.data}
+                isDisabled={!product.data}
                 isLoading={repositoryRemove.isLoading}
               />
             </ConfirmModal>
           </>
         }
       >
-        {repository.isLoading && <SkeletonText maxW="6rem" noOfLines={2} />}
-        {repository.isSuccess && (
-          <Heading size="sm">{repository.data?.name}</Heading>
-        )}
+        {product.isLoading && <SkeletonText maxW="6rem" noOfLines={2} />}
+        {product.isSuccess && <Heading size="sm">{product.data?.name}</Heading>}
       </AdminLayoutPageTopBar>
       <AdminLayoutPageContent>
-        {repository.isLoading && <LoaderFull />}
-        {repository.isError && <ErrorPage />}
-        {repository.isSuccess && (
+        {product.isLoading && <LoaderFull />}
+        {product.isError && <ErrorPage />}
+        {product.isSuccess && (
           <Card>
             <CardBody>
               <Stack spacing={4}>
                 <Box>
                   <Text fontSize="sm" fontWeight="bold">
-                    {t('repositories:data.name.label')}
+                    {t('products:data.name.label')}
                   </Text>
-                  <Text>{repository.data?.name}</Text>
+                  <Text>{product.data?.name}</Text>
                 </Box>
                 <Box
                   role="group"
                   as="a"
-                  href={repository.data?.link}
+                  href={product.data?.link}
                   target="_blank"
                 >
                   <Text fontSize="sm" fontWeight="bold">
-                    {t('repositories:data.link.label')}
+                    {t('products:data.link.label')}
                     <Icon marginLeft={1} icon={LuExternalLink} />
                   </Text>
 
                   <Text _groupHover={{ textDecoration: 'underline' }}>
-                    {repository.data?.link}
+                    {product.data?.link}
                   </Text>
                 </Box>
                 <Box>
                   <Text fontSize="sm" fontWeight="bold">
-                    {t('repositories:data.description.label')}
+                    {t('products:data.description.label')}
                   </Text>
-                  <Text>
-                    {repository.data?.description || <small>-</small>}
-                  </Text>
+                  <Text>{product.data?.description || <small>-</small>}</Text>
                 </Box>
               </Stack>
             </CardBody>
