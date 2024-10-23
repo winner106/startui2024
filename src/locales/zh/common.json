@@ -1,0 +1,27 @@
+{
+  "languages": {
+    "en": "英语",
+    "fr": "法语",
+    "ar": "阿拉伯语",
+    "sw": "斯瓦希里语",
+    "zh": "中文"
+  },
+  "actions": {
+    "back": "返回",
+    "activate": "激活",
+    "cancel": "取消",
+    "deactivate": "停用",
+    "delete": "删除",
+    "edit": "编辑"
+  },
+  "or": "或者",
+  "confirmDiscardChanges": {
+    "title": "离开页面？",
+    "message": "您即将离开页面而不保存更改。",
+    "confirmText": "不保存离开",
+    "cancelText": "留在页面上"
+  },
+  "filter": "过滤",
+  "clear": "清除",
+  "submit": "提交"
+}

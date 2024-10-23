@@ -1,0 +1,101 @@
+{
+  "you": "你",
+  "list": {
+    "title": "用户管理",
+    "status": "状态",
+    "actions": {
+      "createUser": "创建用户"
+    },
+    "loadMore": {
+      "button": "加载更多",
+      "display": "显示 {{loaded}} / {{total}} 个用户"
+    }
+  },
+  "deleteModal": {
+    "title": "确认删除用户",
+    "message": "您确定要删除 \"{{name}}\" 吗？删除后无法恢复。"
+  },
+  "feedbacks": {
+    "activateUserSuccess": {
+      "title": "用户已激活",
+      "description": "用户 \"{{login}}\" 已成功激活"
+    },
+    "deactivateUserSuccess": {
+      "title": "用户已停用",
+      "description": "用户 \"{{login}}\" 已成功停用"
+    },
+    "activateUserError": {
+      "title": "激活失败",
+      "description": "无法激活用户 \"{{login}}\""
+    },
+    "deactivateUserError": {
+      "title": "停用失败",
+      "description": "无法停用用户 \"{{login}}\""
+    },
+    "deleteUserError": {
+      "title": "删除失败",
+      "description": "无法移除用户 \"{{login}}\""
+    },
+    "loadingUserError": {
+      "title": "加载用户失败"
+    }
+  },
+  "data": {
+    "email": {
+      "label": "邮箱",
+      "alreadyUsed": "邮箱已被使用",
+      "required": "邮箱是必填项",
+      "invalid": "邮箱无效"
+    },
+    "authorizations": {
+      "label": "授权",
+      "required": "至少需要一个授权",
+      "options": {
+        "APP": "应用",
+        "ADMIN": "管理员"
+      }
+    },
+    "createdAt": {
+      "ago": "创建于 <dateAgo />"
+    },
+    "status": {
+      "activated": "已激活",
+      "deactivated": "未激活"
+    },
+    "name": {
+      "label": "姓名",
+      "required": "姓名是必填项",
+      "invalid": "姓名无效"
+    },
+    "language": {
+      "label": "语言"
+    }
+  },
+  "update": {
+    "action": {
+      "save": "保存"
+    },
+    "feedbacks": {
+      "updateError": {
+        "title": "更新失败"
+      },
+      "updateSuccess": {
+        "title": "更新成功"
+      }
+    }
+  },
+  "create": {
+    "feedbacks": {
+      "updateError": {
+        "title": "创建失败"
+      },
+      "updateSuccess": {
+        "title": "用户创建成功"
+      }
+    },
+    "action": {
+      "save": "创建"
+    },
+    "title": "新用户"
+  }
+}

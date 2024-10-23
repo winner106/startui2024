@@ -1,0 +1,22 @@
+{
+  "layout": {
+    "mainMenu": {
+      "dashboard": "报表",
+      "repositories": "产品",
+      "management": "管理"
+    },
+    "accountMenu": {
+      "version": {
+        "copied": "版本已复制",
+        "copy": "复制版本",
+        "label": "版本"
+      },
+      "apiDocs": "API 文档",
+      "openApp": "打开应用",
+      "switchColorModeDark": "切换到深色主题",
+      "switchColorModeLight": "切换到浅色主题",
+      "myAccount": "我的账户",
+      "logout": "注销"
+    }
+  }
+}

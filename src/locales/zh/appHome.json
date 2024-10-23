@@ -1,0 +1,12 @@
+{
+  "welcome": {
+    "title": "欢迎来到 🚀 Start UI [web]",
+    "description": "一个使用 React、Chakra UI、React Query 和 React Hook Form 的意见化 UI 启动器",
+    "author": "— 来自 <strong>BearStudio 团队</strong>"
+  },
+  "links": {
+    "github": "GitHub 仓库",
+    "openIssue": "打开问题",
+    "documentation": "文档"
+  }
+}

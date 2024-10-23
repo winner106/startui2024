@@ -22,7 +22,7 @@ model User {
   accountStatus   AccountStatus  @default(NOT_VERIFIED)
   image           String?
   authorizations  UserRole[]     @default([APP])
-  language        String         @default("en")
+  language        String         @default("zh")
   lastLoginAt     DateTime?
   session         Session[]
   oauth           OAuthAccount[]

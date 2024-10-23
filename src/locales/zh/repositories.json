@@ -1,0 +1,70 @@
+{
+  "list": {
+    "title": "仓库",
+    "empty": "没有仓库",
+    "actions": {
+      "createRepository": "创建仓库",
+      "view": "查看"
+    },
+    "loadMore": {
+      "button": "加载更多",
+      "display": "显示 {{loaded}} / {{total}} 个仓库"
+    }
+  },
+  "deleteModal": {
+    "title": "确认删除仓库",
+    "message": "您确定要删除 \"{{name}}\" 吗？删除将是永久的。"
+  },
+  "feedbacks": {
+    "deleteRepositoryError": {
+      "title": "删除失败",
+      "description": "无法移除仓库"
+    },
+    "loadingRepositoryError": {
+      "title": "加载仓库失败"
+    }
+  },
+  "data": {
+    "name": {
+      "label": "名称",
+      "required": "名称是必填项",
+      "alreadyUsed": "名称已被使用"
+    },
+    "link": {
+      "label": "链接",
+      "required": "链接是必填项",
+      "tooSmall": "无效链接，必须至少 {{min}} 个字符",
+      "missingDot": "无效链接，必须包含至少一个点"
+    },
+    "description": {
+      "label": "描述"
+    }
+  },
+  "update": {
+    "action": {
+      "save": "保存"
+    },
+    "feedbacks": {
+      "updateError": {
+        "title": "更新失败"
+      },
+      "updateSuccess": {
+        "title": "更新成功"
+      }
+    }
+  },
+  "create": {
+    "feedbacks": {
+      "updateError": {
+        "title": "创建失败"
+      },
+      "updateSuccess": {
+        "title": "仓库创建成功"
+      }
+    },
+    "action": {
+      "save": "创建"
+    },
+    "title": "新仓库"
+  }
+}

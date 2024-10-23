@@ -1,0 +1,62 @@
+{
+  "registerCode": {
+    "subject": "验证您的账户",
+    "preview": "您的验证代码",
+    "title": "验证您的账户",
+    "hello": "欢迎 {{name}}，",
+    "intro": "您的账户快要准备好了！这是您的验证代码：",
+    "validityTime": "该代码将在接下来的 {{expiration}} 分钟内有效。",
+    "ignoreHelper": "如果您没有尝试注册，可以安全地忽略此电子邮件。"
+  },
+  "registerEmailAlreadyUsed": {
+    "subject": "账户已存在",
+    "preview": "您的电子邮件已被另一个账户使用",
+    "title": "账户已存在",
+    "hello": "嗨 {{name}}，",
+    "intro": "您的电子邮件 {{email}} 已被使用，您不能用它创建另一个账户。",
+    "ignoreHelper": "如果您没有尝试创建账户，可以安全地忽略此电子邮件。"
+  },
+  "loginCode": {
+    "subject": "登录验证代码",
+    "preview": "登录的验证代码",
+    "title": "登录验证代码",
+    "hello": "欢迎回来 {{name}}，",
+    "intro": "这是您的验证代码：",
+    "validityTime": "该代码将在接下来的 {{expiration}} 分钟内有效。",
+    "ignoreHelper": "如果您没有尝试登录，可以安全地忽略此电子邮件。"
+  },
+  "loginNotFound": {
+    "subject": "未找到账户",
+    "preview": "这是正确的电子邮件吗？",
+    "title": "这是正确的电子邮件吗？",
+    "intro": "看起来没有与此电子邮件地址关联的账户。",
+    "button": "尝试其他电子邮件",
+    "ignoreHelper": "如果您没有尝试登录，可以安全地忽略此电子邮件。"
+  },
+  "emailUpdate": {
+    "subject": "验证代码",
+    "preview": "更改您的电子邮件",
+    "title": "您的验证代码",
+    "hello": "嗨 {{name}}，",
+    "intro": "这是更新您电子邮件的验证代码：",
+    "validityTime": "该代码将在接下来的 {{expiration}} 分钟内有效。",
+    "ignoreHelper": "如果您没有尝试更改电子邮件，可以安全地忽略此电子邮件。"
+  },
+  "emailUpdateAlreadyUsed": {
+    "subject": "正在尝试更新您的电子邮件吗？",
+    "preview": "您的电子邮件已被另一个账户使用",
+    "title": "正在尝试更新您的电子邮件吗？",
+    "hello": "嗨 {{name}}，",
+    "intro": "您的电子邮件 {{email}} 已被使用，您不能用它用于另一个账户。",
+    "ignoreHelper": "如果您没有尝试更改电子邮件，可以安全地忽略此电子邮件。"
+  },
+  "deleteAccountCode": {
+    "subject": "删除您的账户",
+    "preview": "删除您账户的验证代码",
+    "title": "删除您的账户",
+    "hello": "{{name}}，您即将删除您的账户。这将是永久性的，请确保您知道自己在做什么。",
+    "intro": "这是您的验证代码：",
+    "validityTime": "该代码将在接下来的 {{expiration}} 分钟内有效。",
+    "ignoreHelper": "如果您没有尝试删除账户，可以安全地忽略此电子邮件。"
+  }
+}
