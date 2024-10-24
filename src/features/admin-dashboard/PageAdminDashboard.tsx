@@ -57,7 +57,15 @@ export default function PageAdminDashboard() {
 }
 
 const ChartWithTitle = ({ title, children }: TODO) => (
-  <Box border="1px solid #e2e8f0" p={4} borderRadius="md">
+  <Box
+    border="1px solid #e2e8f0"
+    p={4}
+    borderRadius="md"
+    display="flex"
+    flexDirection="column"
+    justifyContent="center"
+    alignItems="center" // 水平居中
+  >
     <Heading size="md" textAlign="center" mb={4}>
       {title}
     </Heading>

@@ -38,10 +38,9 @@ export const DemoModalInterceptor = ({ onClose }: { onClose: () => void }) => {
         <ModalBody>
           <Stack spacing={4}>
             <Text>
-              This is a <strong>read-only demo</strong>, this action is
-              disabled.
+              这是一个<strong>预览版本</strong>，不允许进行此类操作。
             </Text>
-            <Stack>
+            {/* <Stack>
               <Text>
                 You can test the full app starter on your own with the following
                 command:
@@ -66,8 +65,8 @@ export const DemoModalInterceptor = ({ onClose }: { onClose: () => void }) => {
                 </Link>{' '}
                 for more information.
               </Text>
-            </Stack>
-            <Alert colorScheme="brand">
+            </Stack> */}
+            {/* <Alert colorScheme="brand">
               <AlertIcon />
               <AlertTitle>Need help?</AlertTitle>
               <AlertDescription pb={2}>
@@ -93,7 +92,7 @@ export const DemoModalInterceptor = ({ onClose }: { onClose: () => void }) => {
                   </HStack>
                 </Stack>
               </AlertDescription>
-            </Alert>
+            </Alert> */}
           </Stack>
         </ModalBody>
       </ModalContent>

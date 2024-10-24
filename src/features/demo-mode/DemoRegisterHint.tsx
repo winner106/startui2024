@@ -19,14 +19,13 @@ export const DemoRegisterHint = ({ loginPath }: DemoRegisterHintProps) => {
   return (
     <Alert status="warning">
       <AlertIcon />
-      <AlertTitle>Demo Mode</AlertTitle>
+      <AlertTitle>预览版本</AlertTitle>
       <AlertDescription>
-        This is a read-only demo, but you can{' '}
+        这是一个只读的预览版本，你可以直接{' '}
         <ChakraLink as={Link} href={loginPath} fontWeight="bold">
-          Sign in
+          登陆
         </ChakraLink>{' '}
-        to test some of the features. Just remember, no changes can be made.
-        Enjoy the features!
+        到系统，体验功能！
       </AlertDescription>
     </Alert>
   );
