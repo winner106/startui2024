@@ -1,7 +1,7 @@
 {
   "layout": {
     "mainMenu": {
-      "dashboard": "首页",
+      "dashboard": "概况",
       "products": "产品",
       "management": "管理"
     },

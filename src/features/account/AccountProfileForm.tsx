@@ -84,6 +84,7 @@ export const AccountProfileForm = () => {
                   control={form.control}
                   name="language"
                   type="select"
+                  isDisabled
                   options={AVAILABLE_LANGUAGES.map(({ key }) => ({
                     label: t(`common:languages.${key}`),
                     value: key,

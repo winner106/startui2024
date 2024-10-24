@@ -3,7 +3,8 @@
     "en": "Anglais",
     "fr": "Français",
     "ar": "Arabe",
-    "sw": "Swahili"
+    "sw": "Swahili",
+    "zh": "zh-CN"
   },
   "actions": {
     "activate": "Activer",
