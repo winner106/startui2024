@@ -23,7 +23,7 @@ export const green = '#e5fd3d';
 const purple = '#9caff6';
 export const background = '#612efb';
 
-const data = cityTemperature.slice(0, 8);
+const data: TODO = cityTemperature.slice(0, 8);
 const keys = Object.keys(data[0]).filter((d) => d !== 'date') as CityName[];
 const defaultMargin = { top: 40, right: 0, bottom: 40, left: 0 };
 
@@ -47,7 +47,7 @@ const tempScale = scaleLinear<number>({
   domain: [
     0,
     Math.max(
-      ...data.map((d) => Math.max(...keys.map((key) => Number(d[key]))))
+      ...data.map((d: TODO) => Math.max(...keys.map((key) => Number(d[key]))))
     ),
   ],
 });

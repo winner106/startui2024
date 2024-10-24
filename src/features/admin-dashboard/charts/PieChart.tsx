@@ -22,12 +22,12 @@ interface BrowserUsage {
 }
 
 const letters: LetterFrequency[] = letterFrequency.slice(0, 4);
-const browserNames = Object.keys(browserUsage[0]).filter(
+const browserNames = Object.keys(browserUsage[0] as object).filter(
   (k) => k !== 'date'
 ) as BrowserNames[];
 const browsers: BrowserUsage[] = browserNames.map((name) => ({
   label: name,
-  usage: Number(browserUsage[0][name]),
+  usage: Number(browserUsage[0]![name]),
 }));
 
 // accessor functions
@@ -175,13 +175,16 @@ export default function Example({
 // react-spring transition definitions
 type AnimatedStyles = { startAngle: number; endAngle: number; opacity: number };
 
-const fromLeaveTransition = ({ endAngle }: PieArcDatum<any>) => ({
+const fromLeaveTransition = ({ endAngle }: PieArcDatum<TODO>) => ({
   // enter from 360° if end angle is > 180°
   startAngle: endAngle > Math.PI ? 2 * Math.PI : 0,
   endAngle: endAngle > Math.PI ? 2 * Math.PI : 0,
   opacity: 0,
 });
-const enterUpdateTransition = ({ startAngle, endAngle }: PieArcDatum<any>) => ({
+const enterUpdateTransition = ({
+  startAngle,
+  endAngle,
+}: PieArcDatum<TODO>) => ({
   startAngle,
   endAngle,
   opacity: 1,

@@ -46,8 +46,10 @@ function genPolygonPoints<Datum>(
     .fill('')
     .reduce((res, _, i) => {
       if (i > dataArray.length) return res;
-      const xVal = scale(getValue(dataArray[i - 1])) * Math.sin(i * step);
-      const yVal = scale(getValue(dataArray[i - 1])) * Math.cos(i * step);
+      const xVal =
+        scale(getValue(dataArray[i - 1] as TODO)) * Math.sin(i * step);
+      const yVal =
+        scale(getValue(dataArray[i - 1] as TODO)) * Math.cos(i * step);
       points[i - 1] = { x: xVal, y: yVal };
       res += `${xVal},${yVal} `;
       return res;
