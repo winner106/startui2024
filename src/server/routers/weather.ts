@@ -47,10 +47,8 @@ export const weatherRouter = createTRPCRouter({
       const { key, cityIds } = input;
       const uniqueCityIds = Array.from(new Set(cityIds));
 
-      const userIp = 'fake ip'; // 获取用户 IPctx.req?.ip ??
-      const client = ctx.req.headers.get('user-agent') ?? 'undefined'; // 获取客户端信息
-
-      // console.log({userIp,client});
+      const userIp = ctx.req.headers.get('x-forwarded-for')?.split(',')[0] || 'unknown';
+      const userAgent = ctx.req.headers.get('user-agent') || 'unknown'; // 获取客户端信息
 
       // 1. 获取 API Key 的相关数据
       const apiKey = await ctx.db.apiKey.findUnique({
@@ -93,8 +91,7 @@ export const weatherRouter = createTRPCRouter({
 
       // 3. 检查请求次数的限制
       const isSameDay = apiKey.lastRequestDate
-        ? new Date(apiKey.lastRequestDate).toDateString() ===
-          new Date().toDateString()
+        ? new Date(apiKey.lastRequestDate).toDateString() === new Date().toDateString()
         : false;
 
       // 日请求次数限制
@@ -120,8 +117,7 @@ export const weatherRouter = createTRPCRouter({
 
       for (const cityId of uniqueCityIds) {
         if (
-          validRequestCount + apiKey.todayRequests <
-            apiKey.package.dailyLimit &&
+          validRequestCount + apiKey.todayRequests < apiKey.package.dailyLimit &&
           validRequestCount + apiKey.usedRequests < totalRequests
         ) {
           validCityIds.push(cityId);
@@ -142,8 +138,7 @@ export const weatherRouter = createTRPCRouter({
           const response = await fetch(
             `http://v1.yiketianqi.com/free/month?appid=${env.WEATHER_APPID}&appsecret=${env.WEATHER_APPSECRET}&cityid=${cityId}&unescape=1`
           );
-          const data = await response.json();
-          return data;
+          return await response.json();
         })
       );
 
@@ -151,9 +146,7 @@ export const weatherRouter = createTRPCRouter({
       const updateResult = await ctx.db.apiKey.update({
         where: { id: apiKey.id },
         data: {
-          todayRequests: isSameDay
-            ? { increment: validRequestCount }
-            : validRequestCount, // 今天请求次数加 validRequestCount，或者重置为 validRequestCount
+          todayRequests: isSameDay ? { increment: validRequestCount } : validRequestCount, // 今天请求次数加 validRequestCount，或者重置为 validRequestCount
           usedRequests: { increment: validRequestCount },
           lastRequestDate: new Date(), // 更新最后一次请求时间
         },
@@ -166,7 +159,7 @@ export const weatherRouter = createTRPCRouter({
           endpointId: apiKey.endpointId, // 替换为实际的 endpoint ID
           requestDate: new Date(),
           userIp,
-          client,
+          userAgent,
           requestCount: validRequestCount,
           description: weatherResults.map((r) => r.city).join(','),
         },

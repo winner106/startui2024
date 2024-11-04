@@ -3,6 +3,7 @@
 /** @type {import("prettier").Options} */
 const config = {
   endOfLine: 'lf',
+  printWidth: 120,
   semi: true,
   singleQuote: true,
   tabWidth: 2,

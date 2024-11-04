@@ -44,7 +44,7 @@ model ApiUsage {
     endpointId   String
     requestDate  DateTime    @default(now()) // 请求时间
     userIp       String // 用户发送请求的 IP 地址
-    client       String // 客户端信息
+    userAgent    String // 客户端信息
     requestCount Int // 记录每次请求消耗的请求数
     description  String
 }
