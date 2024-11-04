@@ -54,6 +54,7 @@ export const createTRPCContext = async ({
     apiType,
     logger,
     db,
+    req,
   };
 };
 

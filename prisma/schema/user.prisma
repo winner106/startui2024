@@ -26,4 +26,5 @@ model User {
   lastLoginAt     DateTime?
   session         Session[]
   oauth           OAuthAccount[]
+  apiKeys         ApiKey[] // 用户可以有多个 APIKey
 }

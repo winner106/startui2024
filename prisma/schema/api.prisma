@@ -1,0 +1,61 @@
+enum APIKeyStatus {
+    ENABLED
+    DISABLED
+}
+
+model ApiEndpoint {
+    id          String       @id @default(cuid())
+    name        String // API 名称（如 "历史天气数据"）
+    description String? // API 描述
+    route       String // API 地址
+    createdAt   DateTime     @default(now())
+    updatedAt   DateTime     @updatedAt
+    product     ExcelProduct @relation(fields: [productId], references: [id])
+    productId   String // 关联到 Excel 产品
+    apiKeys     ApiKey[] // 这个 APIEndpoint 可以关联多个 APIKey
+    usage       ApiUsage[] // 这个 APIEndpoint 可以关联多个 APIKey
+}
+
+model ApiKey {
+    id              String       @id @default(cuid()) // 使用 cuid 自动生成 APIKey
+    key             String       @unique // API Key
+    user            User         @relation(fields: [userId], references: [id])
+    userId          String
+    product         ExcelProduct @relation(fields: [productId], references: [id]) // 关联到用户的 Excel 产品
+    productId       String
+    endpoint        ApiEndpoint  @relation(fields: [endpointId], references: [id]) // 关联到 APIEndpoint
+    endpointId      String
+    usage           ApiUsage[] // 使用记录
+    package         ApiPackage   @relation(fields: [packageId], references: [id])
+    packageId       String
+    status          APIKeyStatus @default(ENABLED) // APIKey 状态，默认启用
+    usedRequests    Int          @default(0) // 总请求次数
+    todayRequests   Int          @default(0) // 今天的请求次数
+    lastRequestDate DateTime? // 最后一次请求时间 
+    createdAt       DateTime     @default(now())
+    updatedAt       DateTime     @updatedAt
+}
+
+model ApiUsage {
+    id           String      @id @default(cuid())
+    apiKey       ApiKey      @relation(fields: [apiKeyId], references: [id])
+    apiKeyId     String
+    endpoint     ApiEndpoint @relation(fields: [endpointId], references: [id])
+    endpointId   String
+    requestDate  DateTime    @default(now()) // 请求时间
+    userIp       String // 用户发送请求的 IP 地址
+    client       String // 客户端信息
+    requestCount Int // 记录每次请求消耗的请求数
+    description  String
+}
+
+model ApiPackage {
+    id            String   @id @default(cuid())
+    name          String // 套餐名称（如 "年套餐"、"半年套餐"）
+    totalRequests Int // 总请求数
+    dailyLimit    Int // 每日请求限制
+    durationDays  Int // 套餐持续天数
+    apiKeys       ApiKey[] // 关联到 APIKey
+    createdAt     DateTime @default(now())
+    updatedAt     DateTime @updatedAt
+}

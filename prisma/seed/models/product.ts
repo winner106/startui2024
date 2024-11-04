@@ -1,3 +1,4 @@
+import { fakerZH_CN as faker } from '@faker-js/faker';
 import { prisma } from 'prisma/seed/utils';
 
 const products = [
@@ -290,5 +291,27 @@ export async function createProducts() {
 
   console.log(
     `✅ ${existingCount} existing products 👉 ${createdCounter} products created`
+  );
+}
+
+export async function createExcelProducts() {
+  console.log(`⏳ Seeding Excel Products`);
+
+  const existingCount = await prisma.excelProduct.count();
+  const productsToCreate = Math.max(0, 10 - existingCount); // 生成最多10个产品
+
+  await Promise.all(
+    Array.from({ length: productsToCreate }, async () => {
+      await prisma.excelProduct.create({
+        data: {
+          name: faker.commerce.productName(),
+          description: faker.commerce.productDescription(),
+        },
+      });
+    })
+  );
+
+  console.log(
+    `✅ ${existingCount} existing Excel Products 👉 ${productsToCreate} products created`
   );
 }

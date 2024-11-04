@@ -17,7 +17,7 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
     >
       <path
         d="M92.001 108C64.3868 108 42.001 85.6144 42.001 58.0002C42.001 30.3859 64.3868 8.0002 92.001 8.0002C119.615 8.0002 142.001 30.3859 142.001 58.0002C142.001 85.6144 119.615 108 92.001 108ZM92.001 104C66.5959 104 46.001 83.4052 46.001 58.0002C46.001 32.5951 66.5959 12.0002 92.001 12.0002C117.406 12.0002 138.001 32.5951 138.001 58.0002C138.001 83.4052 117.406 104 92.001 104Z"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         fill="#0078D4"
       ></path>
       <path d="M42.001 58.0002C42.001 85.6144 64.3868 108 92.001 108C119.615 108 142.001 85.6144 142.001 58.0002C142.001 30.3859 119.615 8.0002 92.001 8.0002C64.3868 8.0002 42.001 30.3859 42.001 58.0002ZM46.001 58.0002C46.001 83.4052 66.5959 104 92.001 104C117.406 104 138.001 83.4052 138.001 58.0002C138.001 32.5951 117.406 12.0002 92.001 12.0002C66.5959 12.0002 46.001 32.5951 46.001 58.0002Z"></path>
@@ -146,8 +146,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           y2="79.38330078125"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#6A6A6A" />
-          <stop offset="1" stop-color="#343333" />
+          <stop offset="0" stopColor="#6A6A6A" />
+          <stop offset="1" stopColor="#343333" />
         </linearGradient>
         <filter
           id="filter_20_31"
@@ -156,9 +156,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           width="52.75048828125"
           height="62.192626953125"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="feFloodId_20_31" />
+          <feFlood floodOpacity="0" result="feFloodId_20_31" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -191,9 +190,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           width="26.45947265625"
           height="26.28271484375"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="feFloodId_20_32" />
+          <feFlood floodOpacity="0" result="feFloodId_20_32" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -226,9 +224,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           width="21.1640625"
           height="10.602783203125"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="feFloodId_20_34" />
+          <feFlood floodOpacity="0" result="feFloodId_20_34" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -261,9 +258,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           width="21.1640625"
           height="10.602783203125"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="feFloodId_20_35" />
+          <feFlood floodOpacity="0" result="feFloodId_20_35" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -296,9 +292,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           width="15.8984375"
           height="10.602783203125"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="feFloodId_20_36" />
+          <feFlood floodOpacity="0" result="feFloodId_20_36" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -332,11 +327,11 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           y2="64.658447265625"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#0078D4" />
-          <stop offset="0.16" stop-color="#1380DA" />
-          <stop offset="0.53" stop-color="#3C91E5" />
-          <stop offset="0.82" stop-color="#559CEC" />
-          <stop offset="1" stop-color="#5EA0EF" />
+          <stop offset="0" stopColor="#0078D4" />
+          <stop offset="0.16" stopColor="#1380DA" />
+          <stop offset="0.53" stopColor="#3C91E5" />
+          <stop offset="0.82" stopColor="#559CEC" />
+          <stop offset="1" stopColor="#5EA0EF" />
         </linearGradient>
         <filter
           id="filter_20_37"
@@ -345,9 +340,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           width="14.14306640625"
           height="15.80859375"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="feFloodId_20_37" />
+          <feFlood floodOpacity="0" result="feFloodId_20_37" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -381,8 +375,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           y2="72.88134765625"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#DA3A00" />
-          <stop offset="1" stop-color="#DA3A00" />
+          <stop offset="0" stopColor="#DA3A00" />
+          <stop offset="1" stopColor="#DA3A00" />
         </linearGradient>
         <filter
           id="filter_20_38"
@@ -391,9 +385,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           width="14.14306640625"
           height="22.749267578125"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="feFloodId_20_38" />
+          <feFlood floodOpacity="0" result="feFloodId_20_38" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -427,8 +420,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           y2="72.881591796875"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#FFE02A" />
-          <stop offset="1" stop-color="#FFB518" />
+          <stop offset="0" stopColor="#FFE02A" />
+          <stop offset="1" stopColor="#FFB518" />
         </linearGradient>
         <filter
           id="filter_20_39"
@@ -437,9 +430,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           width="14.14306640625"
           height="31.425537109375"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="feFloodId_20_39" />
+          <feFlood floodOpacity="0" result="feFloodId_20_39" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -472,9 +464,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           width="25.19970703125"
           height="25.243408203125"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="feFloodId_20_41" />
+          <feFlood floodOpacity="0" result="feFloodId_20_41" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -507,9 +498,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           width="36.94140625"
           height="36.941162109375"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="feFloodId_20_42" />
+          <feFlood floodOpacity="0" result="feFloodId_20_42" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -542,9 +532,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           width="30.9345703125"
           height="30.9345703125"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="feFloodId_20_43" />
+          <feFlood floodOpacity="0" result="feFloodId_20_43" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -577,9 +566,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           width="30.49755859375"
           height="21.10546875"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="feFloodId_20_44" />
+          <feFlood floodOpacity="0" result="feFloodId_20_44" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -612,9 +600,8 @@ export const Logo = ({ ...rest }: ComponentProps<typeof chakra.svg>) => {
           width="NaN"
           height="NaN"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="feFloodId_20_46" />
+          <feFlood floodOpacity="0" result="feFloodId_20_46" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"

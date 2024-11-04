@@ -4,6 +4,7 @@ import { authRouter } from '@/server/routers/auth';
 import { oauthRouter } from '@/server/routers/oauth';
 import { productsRouter } from '@/server/routers/products';
 import { usersRouter } from '@/server/routers/users';
+import { weatherRouter } from '@/server/routers/weather';
 
 /**
  * This is the primary router for your server.
@@ -16,6 +17,7 @@ export const appRouter = createTRPCRouter({
   oauth: oauthRouter,
   products: productsRouter,
   users: usersRouter,
+  weather: weatherRouter,
 });
 
 // export type definition of API

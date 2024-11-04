@@ -6,3 +6,13 @@ model Product {
   link        String
   description String?
 }
+
+model ExcelProduct {
+    id          String        @id @default(cuid())
+    name        String // Excel 表格产品名称
+    description String? // 产品描述
+    createdAt   DateTime      @default(now())
+    updatedAt   DateTime      @updatedAt
+    apiKeys     ApiKey[] // 哪些 APIKey 关联到这个产品
+    endpoints   ApiEndpoint[] // 这个产品可以访问的 APIEndpoints
+}

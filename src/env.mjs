@@ -30,6 +30,8 @@ export const env = createEnv({
       .enum(['true', 'false'])
       .default(process.env.NODE_ENV === 'production' ? 'false' : 'true')
       .transform((value) => value === 'true'),
+    WEATHER_APPID: z.string(),
+    WEATHER_APPSECRET: z.string(),
   },
 
   /**
@@ -100,6 +102,9 @@ export const env = createEnv({
     NEXT_PUBLIC_ENV_EMOJI: process.env.NEXT_PUBLIC_ENV_EMOJI,
     NEXT_PUBLIC_IS_DEMO: process.env.NEXT_PUBLIC_IS_DEMO,
     NEXT_PUBLIC_NODE_ENV: process.env.NODE_ENV,
+
+    WEATHER_APPID: process.env.WEATHER_APPID,
+    WEATHER_APPSECRET: process.env.WEATHER_APPSECRET,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

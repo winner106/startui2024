@@ -11,7 +11,7 @@ export async function createUsers() {
     Array.from({ length: Math.max(0, 98 - existingCount) }, async () => {
       await prisma.user.create({
         data: {
-          name: faker.person.fullName(),
+          name: faker.internet.userName(),
           email: faker.internet.email().toLowerCase(),
           accountStatus: 'ENABLED',
         },
